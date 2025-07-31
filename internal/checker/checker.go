@@ -104,7 +104,7 @@ func (c *Checker) CheckUsername(username, site, url string) (bool, error) {
 func (c *Checker) CheckUsernameWithRetry(username, site, url string, maxRetries int) (bool, error) {
 	var lastErr error
 
-	for retry := range maxRetries {
+	for retry := 0; retry < maxRetries; retry++ {
 		exists, err := c.CheckUsername(username, site, url)
 		if err == nil {
 			return exists, nil

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: accio-config
+  labels:
+    app: accio
+data:
+  TURSO_DATABASE_URL: "file:/data/accio.db?cache=shared"
+  PROFILE_IMAGE_CACHE_DIR: "/app/cache/images"
+  # Add other non-sensitive configuration here
